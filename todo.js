@@ -17,9 +17,9 @@ window.onload = function () {
 												<button class="btn_in_Block btn cursor_style" data-id="remove_block">REMOVE BLOCK</button>
 												<button class="btn_in_Block btn cursor_style" data-id="add_item">ADD ITEM</button>
 											</div>
-											<h1 class="name_task cursor_style"><input type="text" data-id="name"></h1>
 											<span class="open_close cursor_style" data-id="openClose">CLOSE</span>
 										</li>
+										<h1 class="name_task cursor_style"><input type="text" class="name" data-id="name"></h1>
 										<div class="hide"></div>`;
 			wrapper.appendChild(ul);
 			update();
@@ -41,7 +41,8 @@ window.onload = function () {
 												<span class='add'>Add</span>
 												<span class='remove'>Remove</span>
 											</div>`;
-				e.target.parentElement.parentNode.nextElementSibling.appendChild(li);
+				e.target.parentElement.parentNode.nextElementSibling.nextElementSibling.appendChild(li);
+				console.log(e.target.parentElement.parentNode.nextElementSibling.nextElementSibling);
 			}
 			if (e.target.className == "add") {
 				const sub_ul = document.createElement('ul');
@@ -61,10 +62,10 @@ window.onload = function () {
 			}
 			if (e.target.dataset.id == "openClose") {
 				if (e.target.innerText == "CLOSE") {
-					e.target.parentElement.nextElementSibling.style.display = 'none';
+					e.target.parentElement.nextElementSibling.nextElementSibling.style.display = 'none';
 					e.target.innerHTML = "OPEN";
 				} else {
-					e.target.parentElement.nextElementSibling.style.display = 'block';
+					e.target.parentElement.nextElementSibling.nextElementSibling.style.display = 'block';
 					e.target.innerHTML = "CLOSE";
 				}
 			}
